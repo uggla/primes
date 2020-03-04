@@ -1,8 +1,11 @@
+extern crate rayon;
+use rayon::prelude::*;
+
 fn is_prime(n: u32) -> bool {
     if n == 1 {
         false
     } else {
-        !(2..n).any(|x| n % x == 0)
+        !(2..n).into_par_iter().any(|x| n % x == 0)
     }
 }
 
