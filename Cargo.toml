@@ -1,0 +1,6 @@
+[package]
+name = "sum_primes"
+version = "1.0.0"
+authors = ["René Ribaud <rene.ribaud@cgi.com>"]
+
+[dependencies]
