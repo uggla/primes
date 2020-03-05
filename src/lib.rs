@@ -1,4 +1,4 @@
-fn is_prime(n: u32) -> bool {
+fn is_prime(n: u64) -> bool {
     if n == 1 {
         false
     } else {
@@ -6,8 +6,8 @@ fn is_prime(n: u32) -> bool {
     }
 }
 
-pub fn get_prime_list(n: u32) -> Vec<u32> {
-    let mut primes: Vec<u32> = Vec::new();
+pub fn get_prime_list(n: u64) -> Vec<u64> {
+    let mut primes: Vec<u64> = Vec::new();
     if n == 0 {
         return Vec::new();
     } else if n == 1 {
@@ -22,7 +22,7 @@ pub fn get_prime_list(n: u32) -> Vec<u32> {
     primes
 }
 
-pub fn sum(n: u32) -> Option<u32> {
+pub fn sum(n: u64) -> Option<u64> {
     let prime_list = get_prime_list(n);
     match prime_list.is_empty() {
         true => None,
