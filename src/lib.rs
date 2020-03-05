@@ -25,24 +25,29 @@ pub fn get_prime_list(n: u32) -> Vec<u32> {
 
 pub fn eratosthene(n: u32) -> Vec<u32> {
     let mut primes: Vec<u32> = Vec::new();
+    /*  Create a boolean array "prime[0..n+1]" and initialize
+        all entries it as true. A value in prime[i] will
+        finally be false if i is Not a prime, else true.
+    */
     let mut table: Vec<bool> = vec![true; (n + 1) as usize];
-    let mut index = 2;
+    let mut prime = 2;
 
-    if n == 0 {
+    if n < 2 {
         return Vec::new();
-    } else if n == 1 {
-        return Vec::new();
-    };
-
-    while index * index <= n {
-        if table[index as usize] == true {
-            for i in (index * index..n + 1).step_by(index as usize) {
-                table[i as usize] = false;
-            }
-        }
-        index += 1;
     }
 
+    while prime * prime <= n {
+        // If table[prime] is not changed, then it is a prime
+        if table[prime as usize] == true {
+            // Update all multiples of prime
+            for item in (prime * prime..=n).step_by(prime as usize) {
+                table[item as usize] = false;
+            }
+        }
+        prime += 1;
+    }
+
+    // Create a list with all prime numbers
     for item in 2..=n {
         if table[item as usize] {
             primes.push(item)
