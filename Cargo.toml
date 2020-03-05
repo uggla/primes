@@ -1,6 +1,6 @@
 [package]
+authors = ["René Ribaud <rene.ribaud@cgi.com>"]
 name = "sum_primes"
 version = "1.0.0"
-authors = ["René Ribaud <rene.ribaud@cgi.com>"]
-
 [dependencies]
+clap = "*"
