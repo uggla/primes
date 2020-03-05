@@ -2,7 +2,8 @@ fn is_prime(n: u32) -> bool {
     if n == 1 {
         false
     } else {
-        !(2..n).any(|x| n % x == 0)
+        let max = (n as f32).sqrt() as u32;
+        !(2..max + 1).any(|x| n % x == 0)
     }
 }
 
