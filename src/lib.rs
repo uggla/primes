@@ -1,14 +1,14 @@
-fn is_prime(n: u32) -> bool {
+fn is_prime(n: u64) -> bool {
     if n == 1 {
         false
     } else {
-        let max = (n as f32).sqrt() as u32;
+        let max = (n as f32).sqrt() as u64;
         !(2..max + 1).any(|x| n % x == 0)
     }
 }
 
-pub fn get_prime_list(n: u32) -> Vec<u32> {
-    let mut primes: Vec<u32> = Vec::new();
+pub fn get_prime_list(n: u64) -> Vec<u64> {
+    let mut primes: Vec<u64> = Vec::new();
     if n == 0 {
         return Vec::new();
     } else if n == 1 {
@@ -23,8 +23,8 @@ pub fn get_prime_list(n: u32) -> Vec<u32> {
     primes
 }
 
-pub fn eratosthene(n: u32) -> Vec<u32> {
-    let mut primes: Vec<u32> = Vec::new();
+pub fn eratosthene(n: u64) -> Vec<u64> {
+    let mut primes: Vec<u64> = Vec::new();
     /*  Create a boolean array "prime[0..n+1]" and initialize
         all entries it as true. A value in prime[i] will
         finally be false if i is Not a prime, else true.
@@ -56,7 +56,7 @@ pub fn eratosthene(n: u32) -> Vec<u32> {
     primes
 }
 
-pub fn sum(n: u32) -> Option<u32> {
+pub fn sum(n: u64) -> Option<u64> {
     let prime_list = get_prime_list(n);
     match prime_list.is_empty() {
         true => None,
@@ -64,7 +64,7 @@ pub fn sum(n: u32) -> Option<u32> {
     }
 }
 
-pub fn sum_eratosthene(n: u32) -> Option<u32> {
+pub fn sum_eratosthene(n: u64) -> Option<u64> {
     let prime_list = eratosthene(n);
     match prime_list.is_empty() {
         true => None,
